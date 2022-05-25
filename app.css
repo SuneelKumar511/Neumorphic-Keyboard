@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    background-color: #ecf0f3;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #ecf0f3;
+    align-items: center;
+}
+.keyboard{
+    background-color: #ecf0f3;
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow: inset 5px 5px 12px #ffffff,
+                5px 5px 12px rgba(0,0,0,0.16);
+    display: grid;
+    grid-template-columns: repeat(16,80px);            
+}
+input{
+    grid-column: span 16;
+    height: 200px;
+    width: 98%;
+    background-color: #ecf0f3;
+    box-shadow: inset -5px -5px 12px #ffffff,
+                inset 5px 5px 12px rgba(0,0,0,0.16);
+    border: none;
+    border-radius: 20px;
+    color: rgb(70, 70, 70);
+    font-size: 30px;
+    text-align: start;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    padding: 20px;
+    text-transform: uppercase;
+}
+button{
+    height: 60px;
+    width: 60px;
+    background-color: #ecf0f3;
+    box-shadow: -5px -5px 12px #ffffff,
+                5px 5px 12px rgba(0,0,0,0.16);
+    border: none;
+    margin: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+#backspace{
+    grid-column: span 2;
+    height: 60px;
+    width: 140px;
+}
+#tab{
+    grid-column: span 2;
+    height: 60px;
+    width: 130px;
+}
+#capslock{
+        grid-column: span 2;
+        height: 60px;
+        width: 140px;
+}
+#shift{
+    grid-column: span 2;
+    width: 150px;
+}
+#shift2{
+    grid-column: span 3;
+    width: 220px;
+
+}
+#space{
+        grid-column: span 5;
+        height: 60px;
+        width:380px; 
+}
+.dark-light{
+    left: 50px;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 60px;
+    width: 60px;
+    height: 60px;
+    box-shadow: -5px -5px 12px #ffffff,
+                5px 5px 12px rgba(0,0,0,0.16);
+    border-radius: 50%;
+}
+
+.dark-light i{
+    position: absolute;
+    color: red;
+    font-size: 25px;
+    cursor: pointer;transition: all 0.3s ease;
+}
+.dark-light i.sun{
+    opacity: 0;
+    pointer-events: none;
+}
+.dark-light.active i.sun{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dark-light.active i.moon{
+    opacity: 0;
+    pointer-events: none;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard</title>
+    <link rel="stylesheet" href="./app.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="keyboard">
+            <input type="text" placeholder="" id="output-screen">
+            <button onclick="display('`')">`</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="display('?')">?</button>
+            <button onclick="Calculate()">=</button>
+            <button onclick="del()" id="backspace">Backspace</button>
+            <button onclick="display('home')">home</button>
+            <button onclick="display('tab')" id="tab">tab</button>
+            <button onclick="display('q')">Q</button>
+            <button onclick="display('w')">W</button>
+            <button onclick="display('e')">E</button>
+            <button onclick="display('r')">R</button>
+            <button onclick="display('t')">T</button>
+            <button onclick="display('y')">Y</button>
+            <button onclick="display('u')">U</button>
+            <button onclick="display('i')">I</button>
+            <button onclick="display('o')">O</button>
+            <button onclick="display('p')">P</button>
+            <button onclick="display('{')">{</button>
+            <button onclick="display('}')">}</button>
+            <button onclick="Clear()">del</button>
+            <button onclick="display('pgUp')">pg Up</button>
+            <button onclick="display('capslock')" id="capslock">Caps lock</button>
+            <button onclick="display('a')">A</button>
+            <button onclick="display('s')">S</button>
+            <button onclick="display('d')">D</button>
+            <button onclick="display('f')">F</button>
+            <button onclick="display('g')">G</button>
+            <button onclick="display('h')">H</button>
+            <button onclick="display('j')">J</button>
+            <button onclick="display('k')">K</button>
+            <button onclick="display('l')">L</button>
+            <button onclick="display(';')">;</button>
+            <button onclick="display('$')">$</button>
+            <button onclick="display('enter')" id="capslock">Enter</button>
+            <button onclick="display('pgdn')">pg dn</button>
+            <button onclick="display('shift')" id="shift">Shift</button>
+            <button onclick="display('z')">Z</button>
+            <button onclick="display('x')">X</button>
+            <button onclick="display('c')">C</button>
+            <button onclick="display('v')">V</button>
+            <button onclick="display('b')">B</button>
+            <button onclick="display('n')">N</button>
+            <button onclick="display('m')">M</button>
+            <button onclick="display(',')">,</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="display('|')">|</button>
+            <button onclick="display('shift')" id="shift2">Shift</button>
+            <button onclick="display('end')">end</button>
+            <button onclick="display('ctrl')">ctrl</button>
+            <button onclick="display('fn')">fn</button>
+            <button onclick="display('wind')">wind</button>
+            <button onclick="display('alt')">alt</button>
+            <button onclick="display('space')" id="space">space</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('#')">#</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="display('/')">/</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="display('ctrl')">ctrl</button>
+        </div>
+
+        <div class="dark-light">
+            <i class="fa-solid fa-moon moon"></i>
+            <i class="fa-solid fa-sun sun"></i>
+        </div>
+    </div>
+
+
+    <script>
+        var outputScreen = document.getElementById("output-screen");
+        function display(num){
+            outputScreen.value += num;
+        }
+        function Calculate(){
+            try{
+                outputScreen.value = eval(outputScreen.value);
+            }
+            catch(err){
+                alert("invalid")
+            }
+        }
+        function Clear(){
+            outputScreen.value = "";
+        }
+        function del(){
+            outputScreen.value = outputScreen.value.slice(0,-1);
+        }
+
+        const body = document.querySelector("body");
+        modeToggle = document.querySelector(".dark-light");
+
+        modeToggle.addEventListener("click" ,() =>{
+            modeToggle.classList.toggle("active");
+            body.classList.toggle("dark");
+            if(!body.classList.contains("dark"))
+            {
+                localStorage.setItem("mode", "light-mode");
+            }else
+            {
+                localStorage.setItem("mode", "dark-mode")
+            }
+        })
+    </script>
+</body>
+</html>
